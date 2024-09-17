@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Search Results
+{% endblock %}
+
+{% block content %}
+<h1>Search Results</h1>
+
+<form method="get" action="{% url 'search' %}">
+    <input type="text" name="q" value="{{ query }}" placeholder="Search contacts">
+    <button type="submit">Search</button>
+</form>
+
+<ul>
+    {% for info in infos %}
+        <li>
+            {{ info.first_name }} {{ info.last_name }} - {{ info.email }} - {{ info.phone_number }} - {{ info.address }}
+            <a href="{% url 'update' info.pk %}">Edit</a>
+            <a href="{% url 'delete' info.pk %}" onclick="return confirm('Are you sure you want to delete this contact?');">Delete</a>
+        </li>
+    {% empty %}
+        <li>No contacts found.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

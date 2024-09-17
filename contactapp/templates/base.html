@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
+    <style>
+        a{
+            text-decoration: none;
+            padding:30px;
+            color:black;
+            font-size: 2rem;
+        }
+        a:hover{
+            text-decoration: underline;
+            color:blue;
+            opacity: 0.5;
+        }
+    </style>
+    <link rel="stylesheet" href="https://matcha.mizu.sh/matcha.css">
+</head>
+<body>
+    <nav>
+        <a href="/home/">HomePage</a>
+        <a href="/home/add/">Add</a>
+    </nav>
+    
+    {% block content %}
+    {% endblock %}
+
+
+</body>
+</html>
